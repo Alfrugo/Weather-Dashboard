@@ -1,3 +1,5 @@
+Live website: https://alfrugo.github.io/Weather-Dashboard/
+
 AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
@@ -14,3 +16,4 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 
+API key 195bb7ba3428636ab3689f9eda27fa31
