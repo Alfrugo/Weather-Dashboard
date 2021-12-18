@@ -17,3 +17,7 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 
 API key 195bb7ba3428636ab3689f9eda27fa31
+
+api.openweathermap.org/data/2.5/forecast/daily?q={city name}&cnt={cnt}&appid={API key}
+
+
