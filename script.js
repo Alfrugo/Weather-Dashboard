@@ -32,9 +32,12 @@ var fiveTemp = document.querySelector("#fiveTemp");
 var fiveWind = document.querySelector("#fiveWind");
 var fiveHumidity = document.querySelector("#fiveHumidity");
 
+// local storage history section 
+var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+var historyEl = document.getElementById("history");
 
-
-
+var histList = document.querySelector("#hist-list")
+    // console.log("the search history Initial: " + searchHistory);
 
 //date collection with moment.js
 
@@ -46,13 +49,9 @@ $("#dayFour").text(moment().add(4, "days").format("L"));
 $("#dayFive").text(moment().add(5, "days").format("L"));
 
 
-
-
 var dayToday = moment().format("L");
 var dayOne = moment().add(1, "days").format("L")
 console.log("tomorrow: " + dayOne);
-
-
 
 //input section
 
@@ -63,14 +62,18 @@ var formSubmitHandler = function(event) {
     var cityname = cityInputEl.value.trim(); 
     if (cityname) {
       getWeather(cityname);
-      // clear old content
-      //repoContainerEl.textContent = '';
+      searchHistory.push(cityname);
+      localStorage.setItem("search",JSON.stringify(searchHistory));
+      //console.log("the search history: " + searchHistory);
+      displaySearchHistory(); 
+
       cityInputEl.value = '';
     } else {
       alert('Please enter a city name');
     }
   };
 
+  // get weather function for main and 5 lower squares
 
 var getWeather = function(city) {
     // format the weather api url
@@ -111,40 +114,71 @@ var getWeather = function(city) {
 
   var displayTodayCity = function(dataCity, searchTerm){
     citySearchTerm.textContent = searchTerm + " ("+dayToday+")";
-    todayTemp.textContent = "Temp: " + dataCity.list[0].main.temp + "°F";
+    todayTemp.textContent = "Temp: " + kel2far(dataCity.list[0].main.temp) + "°F";
     todayWind.textContent = "Wind: " + dataCity.list[0].wind.speed + "MPH";
     todayHumidity.textContent = "Humidity: " + dataCity.list[0].main.humidity + "%";
     todayUvindex.textContent = "UV Index: " + dataCity.list[0].main.uvindex + "%";
   };
 
   var displaydayOne = function(dataCity, searchTerm){
-    oneTemp.textContent = "Temp: " + dataCity.list[1].main.temp + "°F";
+    oneTemp.textContent = "Temp: " + kel2far(dataCity.list[1].main.temp) + "°F";
     oneWind.textContent = "Wind: " + dataCity.list[1].wind.speed + "MPH";
     oneHumidity.textContent = "Humidity: " + dataCity.list[1].main.humidity + "%";
   };
 
   var displaydayTwo = function(dataCity, searchTerm){
-    twoTemp.textContent = "Temp: " + dataCity.list[2].main.temp + "°F";
+    twoTemp.textContent = "Temp: " + kel2far(dataCity.list[2].main.temp) + "°F";
     twoWind.textContent = "Wind: " + dataCity.list[2].wind.speed + "MPH";
     twoHumidity.textContent = "Humidity: " + dataCity.list[2].main.humidity + "%";
   };
 
   var displaydayThree = function(dataCity, searchTerm){
-    threeTemp.textContent = "Temp: " + dataCity.list[3].main.temp + "°F";
+    threeTemp.textContent = "Temp: " + kel2far(dataCity.list[3].main.temp) + "°F";
     threeWind.textContent = "Wind: " + dataCity.list[3].wind.speed + "MPH";
     threeHumidity.textContent = "Humidity: " + dataCity.list[3].main.humidity + "%";
   };
 
   var displaydayFour = function(dataCity, searchTerm){
-    fourTemp.textContent = "Temp: " + dataCity.list[4].main.temp + "°F";
+    fourTemp.textContent = "Temp: " + kel2far(dataCity.list[4].main.temp) + "°F";
     fourWind.textContent = "Wind: " + dataCity.list[4].wind.speed + "MPH";
     fourHumidity.textContent = "Humidity: " + dataCity.list[4].main.humidity + "%";
   };
 
   var displaydayFive = function(dataCity, searchTerm){
-    fiveTemp.textContent = "Temp: " + dataCity.list[5].main.temp + "°F";
+    fiveTemp.textContent = "Temp: " + kel2far(dataCity.list[5].main.temp) + "°F";
     fiveWind.textContent = "Wind: " + dataCity.list[5].wind.speed + "MPH";
     fiveHumidity.textContent = "Humidity: " + dataCity.list[5].main.humidity + "%";
   };
 
+  // display the search history.. this needs help. The button doesn't call the function right
+
+  function displaySearchHistory() {
+    for (let i=0; i<searchHistory.length; i++) {
+          if (i == 6) {
+            return;
+          }
+     
+          var histItem = document.createElement("p");
+          histItem.classList = "histitem";
+          histItem.setAttribute("type","text");
+          histItem.value = searchHistory[i];
+          histItem.setAttribute("value", searchHistory[i]);
+          histItem.textContent = searchHistory[i];
+          histItem.setAttribute("readonly", true);
+          histItem.addEventListener("click", function(){
+            getWeather(histItem.value);
+            console.log("histItem: " + histItem.value);
+          })
+        histList.appendChild(histItem); 
+    }
+}
+
+//kelvin to farenheight converter
+
+function kel2far(kDegree){
+  var farenheight = Math.round((kDegree - 273.15)*1.8+32);
+  return farenheight;
+}
+
   cityFormEl.addEventListener("submit", formSubmitHandler);
+  displaySearchHistory();
