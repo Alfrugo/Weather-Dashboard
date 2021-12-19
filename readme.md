@@ -1,8 +1,6 @@
-Live website: https://alfrugo.github.io/Weather-Dashboard/
 
 
-https://user-images.githubusercontent.com/36056407/146691531-3c650534-7c5c-4257-b1ab-4ff17af86395.png
-
+![Application mockup Weather Dashboard](https://user-images.githubusercontent.com/36056407/146691531-3c650534-7c5c-4257-b1ab-4ff17af86395.png)
 
 AS A traveler
 I WANT to see the weather outlook for multiple cities
@@ -21,6 +19,11 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 
 
-api.openweathermap.org/data/2.5/forecast/daily?q={city name}&cnt={cnt}&appid={API key}
+
+Links:
+
+Live website: https://alfrugo.github.io/Weather-Dashboard/
+Lnk to Repo https://github.com/Alfrugo/Weather-Dashboard
 
 
+Developed by Alfredo Diez 2021
