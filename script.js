@@ -32,6 +32,17 @@ var fiveTemp = document.querySelector("#fiveTemp");
 var fiveWind = document.querySelector("#fiveWind");
 var fiveHumidity = document.querySelector("#fiveHumidity");
 
+var currentPicEl = document.getElementById("current-pic");  // image for the clouds / sun / etc.
+
+var imgOne = document.getElementById("img-one");  // image for the clouds / sun / etc.
+var imgTwo = document.getElementById("img-two");  // image for the clouds / sun / etc.
+var imgThree = document.getElementById("img-three");  // image for the clouds / sun / etc.
+var imgFour = document.getElementById("img-four");  // image for the clouds / sun / etc.
+var imgFive = document.getElementById("img-five");  // image for the clouds / sun / etc.
+
+
+
+
 // local storage history section 
 var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 var historyEl = document.getElementById("history");
@@ -114,6 +125,12 @@ var getWeather = function(city) {
 
   var displayTodayCity = function(dataCity, searchTerm){
     citySearchTerm.textContent = searchTerm + " ("+dayToday+")";
+    // pulling the correct icon for sun/louds, etc.
+    var weatherPic = dataCity.list[0].weather[0].icon;
+    console.log ("weather Icon: " + weatherPic);
+    currentPicEl.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+    //currentPicEl.setAttribute("alt",dataCity.weather[0].description);
+
     todayTemp.textContent = "Temp: " + kel2far(dataCity.list[0].main.temp) + "°F";
     todayWind.textContent = "Wind: " + dataCity.list[0].wind.speed + "MPH";
     todayHumidity.textContent = "Humidity: " + dataCity.list[0].main.humidity + "%";
@@ -121,30 +138,52 @@ var getWeather = function(city) {
   };
 
   var displaydayOne = function(dataCity, searchTerm){
+    // / pulling the correct icon for sun/louds, etc.
+    var weatherPicOne = dataCity.list[1].weather[0].icon;
+    console.log ("weather Icon: " + weatherPicOne);
+    imgOne.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPicOne + "@2x.png");
+
     oneTemp.textContent = "Temp: " + kel2far(dataCity.list[1].main.temp) + "°F";
     oneWind.textContent = "Wind: " + dataCity.list[1].wind.speed + "MPH";
     oneHumidity.textContent = "Humidity: " + dataCity.list[1].main.humidity + "%";
   };
 
   var displaydayTwo = function(dataCity, searchTerm){
+    // / pulling the correct icon for sun/louds, etc.
+    var weatherPicTwo = dataCity.list[2].weather[0].icon;
+    console.log ("weather Icon: " + weatherPicTwo);
+    imgTwo.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPicTwo + "@2x.png");
     twoTemp.textContent = "Temp: " + kel2far(dataCity.list[2].main.temp) + "°F";
     twoWind.textContent = "Wind: " + dataCity.list[2].wind.speed + "MPH";
     twoHumidity.textContent = "Humidity: " + dataCity.list[2].main.humidity + "%";
   };
 
   var displaydayThree = function(dataCity, searchTerm){
+    var weatherPicThree = dataCity.list[3].weather[0].icon;
+    console.log ("weather Icon: " + weatherPicThree);
+    imgThree.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPicThree + "@2x.png");
+
     threeTemp.textContent = "Temp: " + kel2far(dataCity.list[3].main.temp) + "°F";
     threeWind.textContent = "Wind: " + dataCity.list[3].wind.speed + "MPH";
     threeHumidity.textContent = "Humidity: " + dataCity.list[3].main.humidity + "%";
   };
 
   var displaydayFour = function(dataCity, searchTerm){
+    var weatherPicFour = dataCity.list[4].weather[0].icon;
+    console.log ("weather Icon: " + weatherPicFour);
+    imgFour.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPicFour + "@2x.png");
+
     fourTemp.textContent = "Temp: " + kel2far(dataCity.list[4].main.temp) + "°F";
     fourWind.textContent = "Wind: " + dataCity.list[4].wind.speed + "MPH";
     fourHumidity.textContent = "Humidity: " + dataCity.list[4].main.humidity + "%";
   };
 
   var displaydayFive = function(dataCity, searchTerm){
+    var weatherPicFive = dataCity.list[5].weather[0].icon;
+    console.log ("weather Icon: " + weatherPicFive);
+    imgFive.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPicFive + "@2x.png");
+
+
     fiveTemp.textContent = "Temp: " + kel2far(dataCity.list[5].main.temp) + "°F";
     fiveWind.textContent = "Wind: " + dataCity.list[5].wind.speed + "MPH";
     fiveHumidity.textContent = "Humidity: " + dataCity.list[5].main.humidity + "%";

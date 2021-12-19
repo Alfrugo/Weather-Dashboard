@@ -118,3 +118,15 @@ input {
     width: 90%;
     margin-top: 10px;
 }
+
+.bigweathericon {
+    float:right;
+    width: 155px;
+    height: 155px;
+    padding-right: 40px;
+
+}
+.smallweathericon {
+    width: 30px;
+    height: 30px;
+}
