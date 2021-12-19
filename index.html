@@ -10,18 +10,16 @@
 </head>
 
 <body>
-
     <header>
         <h1>Weather Dashboard</h1>
     </header>
-
     <main>
         <div class="left-col">
             <div class="input-box">
                 <h3 >Search for a city:</h3>
-                <form id="user-form" class="card-body">
-                    <label class="form-label" for="username"></label>
-                    <input name="username" id="username" type="text" autofocus="true"  />
+                <form id="city-form" class="card-body">
+                    <label class="form-label" for="cityname"></label>
+                    <input name="cityname" id="cityname" type="text" autofocus="true"  />
                     <button type="submit" class="btn">Search</button>
                 </form>
             </div>
@@ -34,65 +32,66 @@
 
         <div class="right-col">
             <div class="top-row">
-                <h3 id="city-name">Atlanta <span id="today-date">(3/13/2021) </span><span id="today-clouds"><img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" height="25px" width="25px" alt=""></span></h3>
-                <h6>Temp: 73.72 F</h6>
-                <h6>Wind: 3.4 MPH </h6>
-                <h6>Humidty: 74%</h6>
-                <h6>UV Index: 45</h6>
+                <h3 id="city-search-term"><span id="currentDay"> </span><span id="today-clouds"><img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" height="25px" width="25px" alt=""></span></h3>
+                <h6 id="today-temp">Temp: </h6>
+                <h6 id="today-wind">Wind:  </h6>
+                <h6 id="today-humidity">Humidty:</h6>
+                <h6 id="today-uvindex">UV Index: </h6>
 
             </div>
             <h3>5-Day Forecast:</h3><br>
 
             <div class="bottom-row">
                 <div class="weath-squr">
-                    <h4>3/31/2021</h4>
+                    <h4 id="dayOne"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp: 73.72 F</h5>
-                    <h5>Wind: 3.4 MPH </h5>
-                    <h5>Humidty: 74%</h5>
+                    <h5>Temp:</h5>
+                    <h5>Wind:</h5>
+                    <h5>Humidty:</h5>
                 </div>
 
                 <div class="weath-squr">
-                    <h4>3/31/2021</h4>
+                    <h4 id="dayTwo"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp: 73.72 F</h5>
-                    <h5>Wind: 3.4 MPH </h5>
-                    <h5>Humidty: 74%</h5>
+                    <h5>Temp:</h5>
+                    <h5>Wind:</h5>
+                    <h5>Humidty:</h5>
                 </div>
 
                 <div class="weath-squr">
-                    <h4>3/31/2021</h4>
+                    <h4 id="dayThree"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp: 73.72 F</h5>
-                    <h5>Wind: 3.4 MPH </h5>
-                    <h5>Humidty: 74%</h5>
+                    <h5>Temp:</h5>
+                    <h5>Wind: </h5>
+                    <h5>Humidty:</h5>
                 </div>
 
                 <div class="weath-squr">
-                    <h4>3/31/2021</h4>
+                    <h4 id="dayFour"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp: 73.72 F</h5>
-                    <h5>Wind: 3.4 MPH </h5>
-                    <h5>Humidty: 74%</h5>
+                    <h5>Temp:</h5>
+                    <h5>Wind:</h5>
+                    <h5>Humidty:</h5>
                 </div>
 
                 <div class="weath-squr">
-                    <h4>3/31/2021</h4>
+                    <h4 id="dayFive"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp: 73.72 F</h5>
-                    <h5>Wind: 3.4 MPH </h5>
-                    <h5>Humidty: 74%</h5>
+                    <h5>Temp:</h5>
+                    <h5>Wind:</h5>
+                    <h5>Humidty:</h5>
                 </div>
             </div>
         </div>
 
     </main>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="script.js"></script>
 </body>
 
