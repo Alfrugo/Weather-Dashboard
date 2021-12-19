@@ -1,5 +1,9 @@
 Live website: https://alfrugo.github.io/Weather-Dashboard/
 
+
+https://user-images.githubusercontent.com/36056407/146691531-3c650534-7c5c-4257-b1ab-4ff17af86395.png
+
+
 AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
