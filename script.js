@@ -40,7 +40,7 @@ var imgThree = document.getElementById("img-three");  // image for the clouds / 
 var imgFour = document.getElementById("img-four");  // image for the clouds / sun / etc.
 var imgFive = document.getElementById("img-five");  // image for the clouds / sun / etc.
 
-
+let uvIndex = document.querySelector("uv-index");
 
 
 // local storage history section 
@@ -123,6 +123,7 @@ var getWeather = function(city) {
       });
   };
 
+
   var displayTodayCity = function(dataCity, searchTerm){
     citySearchTerm.textContent = searchTerm + " ("+dayToday+")";
     // pulling the correct icon for sun/louds, etc.
@@ -134,8 +135,31 @@ var getWeather = function(city) {
     todayTemp.textContent = "Temp: " + kel2far(dataCity.list[0].main.temp) + "°F";
     todayWind.textContent = "Wind: " + dataCity.list[0].wind.speed + "MPH";
     todayHumidity.textContent = "Humidity: " + dataCity.list[0].main.humidity + "%";
-    todayUvindex.textContent = "UV Index: " + dataCity.list[0].main.uvindex + "%";
-  };
+
+    var lat = dataCity.city.coord.lat;
+    var lon = dataCity.city.coord.lon;
+
+    console.log('lat / long' + lat + "  +  " + lon);
+
+    // let UVurl = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=195bb7ba3428636ab3689f9eda27fa31&cnt=1";
+    // let UVurl = "https://api.openweathermap.org/data/2.5/onecall?"+lat+"&"+lon+"&exclude=hourly,daily&appid=195bb7ba3428636ab3689f9eda27fa31"
+
+    let UVurl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,daily&appid=195bb7ba3428636ab3689f9eda27fa31"
+
+    fetch(UVurl)
+    .then(function(response){
+    console.log(UVurl);
+    console.log(response);
+          response.json().then(function(data) {
+          console.log('fetch the lon lat data: ')
+          console.log(data.current.uvi);
+          var UV = data.current.uvi;
+          todayUvindex.textContent = "UV Index: " + UV;
+        })
+
+  })
+
+}
 
   var displaydayOne = function(dataCity, searchTerm){
     // / pulling the correct icon for sun/louds, etc.
