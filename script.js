@@ -11,6 +11,31 @@ var todayWind = document.querySelector("#today-wind");
 var todayHumidity = document.querySelector("#today-humidity");
 var todayUvindex = document.querySelector("#today-uvindex");
 
+
+var oneTemp = document.querySelector("#oneTemp");
+var oneWind = document.querySelector("#oneWind");
+var oneHumidity = document.querySelector("#oneHumidity");
+
+var twoTemp = document.querySelector("#twoTemp");
+var twoWind = document.querySelector("#twoWind");
+var twoHumidity = document.querySelector("#twoHumidity");
+
+var threeTemp = document.querySelector("#threeTemp");
+var threeWind = document.querySelector("#threeWind");
+var threeHumidity = document.querySelector("#threeHumidity");
+
+var fourTemp = document.querySelector("#fourTemp");
+var fourWind = document.querySelector("#fourWind");
+var fourHumidity = document.querySelector("#fourHumidity");
+
+var fiveTemp = document.querySelector("#fiveTemp");
+var fiveWind = document.querySelector("#fiveWind");
+var fiveHumidity = document.querySelector("#fiveHumidity");
+
+
+
+
+
 //date collection with moment.js
 
 $("#currentDay").text(moment().format("L"));   // moment.js initial value for the weather dashboard
@@ -69,6 +94,11 @@ var getWeather = function(city) {
             // console.log("Date: " + data.list[0].dt_txt);  // here is the call for the date 
             // console.log("Clouds: " + data.list[0].clouds.all);  // here is the call for the cloudyness 
           displayTodayCity(data, city);    
+          displaydayOne(data, city);
+          displaydayTwo(data,city);
+          displaydayThree(data,city);
+          displaydayFour(data,city);
+          displaydayFive(data,city);
           });
         } else {
           alert('Error: ' + response.statusText);
@@ -80,14 +110,41 @@ var getWeather = function(city) {
   };
 
   var displayTodayCity = function(dataCity, searchTerm){
-    
     citySearchTerm.textContent = searchTerm + " ("+dayToday+")";
-
-
     todayTemp.textContent = "Temp: " + dataCity.list[0].main.temp + "°F";
     todayWind.textContent = "Wind: " + dataCity.list[0].wind.speed + "MPH";
     todayHumidity.textContent = "Humidity: " + dataCity.list[0].main.humidity + "%";
     todayUvindex.textContent = "UV Index: " + dataCity.list[0].main.uvindex + "%";
+  };
+
+  var displaydayOne = function(dataCity, searchTerm){
+    oneTemp.textContent = "Temp: " + dataCity.list[1].main.temp + "°F";
+    oneWind.textContent = "Wind: " + dataCity.list[1].wind.speed + "MPH";
+    oneHumidity.textContent = "Humidity: " + dataCity.list[1].main.humidity + "%";
+  };
+
+  var displaydayTwo = function(dataCity, searchTerm){
+    twoTemp.textContent = "Temp: " + dataCity.list[2].main.temp + "°F";
+    twoWind.textContent = "Wind: " + dataCity.list[2].wind.speed + "MPH";
+    twoHumidity.textContent = "Humidity: " + dataCity.list[2].main.humidity + "%";
+  };
+
+  var displaydayThree = function(dataCity, searchTerm){
+    threeTemp.textContent = "Temp: " + dataCity.list[3].main.temp + "°F";
+    threeWind.textContent = "Wind: " + dataCity.list[3].wind.speed + "MPH";
+    threeHumidity.textContent = "Humidity: " + dataCity.list[3].main.humidity + "%";
+  };
+
+  var displaydayFour = function(dataCity, searchTerm){
+    fourTemp.textContent = "Temp: " + dataCity.list[4].main.temp + "°F";
+    fourWind.textContent = "Wind: " + dataCity.list[4].wind.speed + "MPH";
+    fourHumidity.textContent = "Humidity: " + dataCity.list[4].main.humidity + "%";
+  };
+
+  var displaydayFive = function(dataCity, searchTerm){
+    fiveTemp.textContent = "Temp: " + dataCity.list[5].main.temp + "°F";
+    fiveWind.textContent = "Wind: " + dataCity.list[5].wind.speed + "MPH";
+    fiveHumidity.textContent = "Humidity: " + dataCity.list[5].main.humidity + "%";
   };
 
   cityFormEl.addEventListener("submit", formSubmitHandler);

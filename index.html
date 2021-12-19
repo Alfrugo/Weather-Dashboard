@@ -23,6 +23,8 @@
                     <button type="submit" class="btn">Search</button>
                 </form>
             </div>
+
+<!-- This needs to be local storage  -->
             <div class="hist-list">
                 <p>City One</p>
                 <p>City Two</p>
@@ -31,6 +33,7 @@
         </div>
 
         <div class="right-col">
+<!-- Today's weather box            -->
             <div class="top-row">
                 <h3 id="city-search-term"><span id="currentDay"> </span><span id="today-clouds"><img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" height="25px" width="25px" alt=""></span></h3>
                 <h6 id="today-temp">Temp: </h6>
@@ -40,51 +43,51 @@
 
             </div>
             <h3>5-Day Forecast:</h3><br>
-
+<!-- Five boxes for weather  -->
             <div class="bottom-row">
                 <div class="weath-squr">
                     <h4 id="dayOne"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp:</h5>
-                    <h5>Wind:</h5>
-                    <h5>Humidty:</h5>
+                    <h5 id="oneTemp">Temp:</h5>
+                    <h5 id="oneWind">Wind:</h5>
+                    <h5 id="oneHumidity">Humidty:</h5>
                 </div>
 
                 <div class="weath-squr">
                     <h4 id="dayTwo"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp:</h5>
-                    <h5>Wind:</h5>
-                    <h5>Humidty:</h5>
+                        <h5 id="twoTemp">Temp:</h5>
+                        <h5 id="twoWind">Wind:</h5>
+                        <h5 id="twoHumidity">Humidty:</h5>
                 </div>
 
                 <div class="weath-squr">
                     <h4 id="dayThree"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp:</h5>
-                    <h5>Wind: </h5>
-                    <h5>Humidty:</h5>
+                        <h5 id="threeTemp">Temp:</h5>
+                        <h5 id="threeWind">Wind:</h5>
+                        <h5 id="threeHumidity">Humidty:</h5>
                 </div>
 
                 <div class="weath-squr">
                     <h4 id="dayFour"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp:</h5>
-                    <h5>Wind:</h5>
-                    <h5>Humidty:</h5>
+                        <h5 id="fourTemp">Temp:</h5>
+                        <h5 id="fourWind">Wind:</h5>
+                        <h5 id="fourHumidity">Humidty:</h5>
                 </div>
 
                 <div class="weath-squr">
                     <h4 id="dayFive"></h4>
                     <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" height="20px" width="20px"
                         alt="Sunny!">
-                    <h5>Temp:</h5>
-                    <h5>Wind:</h5>
-                    <h5>Humidty:</h5>
+                        <h5 id="fiveTemp">Temp:</h5>
+                        <h5 id="fiveWind">Wind:</h5>
+                        <h5 id="fiveHumidity">Humidty:</h5>
                 </div>
             </div>
         </div>
